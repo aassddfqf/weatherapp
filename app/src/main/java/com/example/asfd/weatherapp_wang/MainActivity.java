@@ -307,12 +307,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if(todayWeather.getType().equals("沙尘暴")) weatherImg.setImageResource(R.drawable.biz_plugin_weather_shachenbao);
 
         //pm2.5更新
-        if(todayWeather.getQuality().equals("优")) pmImg.setImageResource(R.drawable.biz_plugin_weather_0_50);
-        if(todayWeather.getQuality().equals("良")) pmImg.setImageResource(R.drawable.biz_plugin_weather_51_100);
-        if(todayWeather.getQuality().equals("轻度污染")) pmImg.setImageResource(R.drawable.biz_plugin_weather_101_150);
-        if(todayWeather.getQuality().equals("中度污染")) pmImg.setImageResource(R.drawable.biz_plugin_weather_151_200);
-        if(todayWeather.getQuality().equals("重度污染")) pmImg.setImageResource(R.drawable.biz_plugin_weather_201_300);
-        if(todayWeather.getQuality().equals("严重污染")) pmImg.setImageResource(R.drawable.biz_plugin_weather_greater_300);
+        if(todayWeather.getPm25() != null) {
+            if (todayWeather.getQuality().equals("优"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_0_50);
+            if (todayWeather.getQuality().equals("良"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_51_100);
+            if (todayWeather.getQuality().equals("轻度污染"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_101_150);
+            if (todayWeather.getQuality().equals("中度污染"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_151_200);
+            if (todayWeather.getQuality().equals("重度污染"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_201_300);
+            if (todayWeather.getQuality().equals("严重污染"))
+                pmImg.setImageResource(R.drawable.biz_plugin_weather_greater_300);
+        }
         Toast.makeText(MainActivity.this, "更新成功！", Toast.LENGTH_SHORT).show();
     }
 }
