@@ -33,8 +33,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private ImageView mCitySelect;
     private ImageView mUpdateBtn;//为更新按钮imageView添加单击事件
-    private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv, temperatureTv, climateTv, windTv, city_name_Tv;
-    private ImageView weatherImg, pmImg;
+    private TextView cityTv, timeTv, humidityTv, weekTv, pmDataTv, pmQualityTv, temperatureTv, climateTv, windTv, city_name_Tv;//文本信息
+    private ImageView weatherImg, pmImg;//图片信息
     //调用todayweather更新天气
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     };
 
+    //activity在被创建时调用，初始化
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,13 +97,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     //单击事件
     public void onClick(View view) {
+        //进入选择城市页面
         if (view.getId() == R.id.title_city_manager){
             Intent i  = new Intent(this, SelectCity.class);
             //startActivity(i);
             startActivityForResult(i,1);
 
         }
-
+        //刷新
         if (view.getId() == R.id.title_update_btn) {
             //从sharedpreferences中读取城市id
             SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
@@ -189,7 +191,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }).start();
     }
-
+    //分析XMl文件
     private TodayWeather parseXML(String xmldata) {
         TodayWeather todayWeather = null;
         int fengxiangCount = 0;
