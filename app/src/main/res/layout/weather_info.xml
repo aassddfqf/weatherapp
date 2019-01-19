@@ -65,13 +65,14 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/title"
         android:background="@drawable/biz_plugin_weather_shenzhen_bg"
-        android:orientation="vertical">        <!-- 今日天气信息 -->
-
+        android:orientation="vertical">
+        <!-- 今日天气信息 -->
         <RelativeLayout
             android:id="@+id/weather_today"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="10.0dip">            <!-- 城市名称 -->
+            android:padding="10.0dip">
+            <!-- 城市名称 -->
             <TextView
                 android:id="@+id/city"
                 android:layout_width="wrap_content"
@@ -82,7 +83,8 @@
                 android:singleLine="true"
                 android:text="北京"
                 android:textColor="@android:color/white"
-                android:textSize="40.0sp" />            <!-- 发布时间 -->
+                android:textSize="40.0sp" />
+            <!-- 发布时间 -->
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
@@ -94,7 +96,8 @@
                 android:singleLine="true"
                 android:text="今天18:25发布"
                 android:textColor="@android:color/white"
-                android:textSize="15.0sp" />            <!-- 湿度信息 -->
+                android:textSize="15.0sp" />
+            <!-- 湿度信息 -->
             <TextView
                 android:id="@+id/humidity"
                 android:layout_width="wrap_content"
@@ -124,7 +127,7 @@
                     android:paddingLeft="12.0dip"
                     android:paddingRight="12.0dip"
                     android:paddingTop="6.0dip">
-                <!-- PM2.5文字详情 -->
+                    <!-- PM2.5文字详情 -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -232,7 +235,41 @@
                     android:textSize="20.0sp" />
             </RelativeLayout>
         </RelativeLayout>
-            <!-- 六日天气信息 --><!-- 广告等信息 -->
+        <!-- 六日天气信息 -->
+        <RelativeLayout
+            android:id="@+id/sixDay_waeather"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10.0dip">
+            <!--展示滑动页面-->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            </android.support.v4.view.ViewPager>
+            <!-- 两个小点 -->
+            <LinearLayout
+                android:id="@+id/indicator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:src="@drawable/page_indicator_focused" />
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:src="@drawable/page_indicator_unfocused" />
+            </LinearLayout>
+        </RelativeLayout>
+        <!-- 广告等信息 -->
     </LinearLayout>
 
 </RelativeLayout>

@@ -15,7 +15,7 @@ import cn.edu.pku.wangluyue.bean.City;
 import cn.edu.pku.wangluyue.db.CityDB;
 
 public class MyApplication extends Application{
-    private static final  String TAG = "MyAPP";
+    private static final  String TAG = "MyAPP";//设置标签
     private static MyApplication myApplication;
     private CityDB mCityDB;
     private List<City> mCityList;
@@ -24,31 +24,31 @@ public class MyApplication extends Application{
         super.onCreate();
         Log.d(TAG,"MyApplication->OnCreate");
         myApplication = this;
-        mCityDB = openCityDB();
-        initCityList();
+        mCityDB = openCityDB();//调用CityDB.java打开数据库
+        initCityList();//初始化城市列表
     }
 
     private void initCityList() {
-        mCityList = new ArrayList<City>();
+        mCityList = new ArrayList<City>();//新建city类型的数组
         new Thread(new Runnable() {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
                 prepareCityList();
             }
-        }).start();
+        }).start();//新进程
     }
 
     private boolean prepareCityList() {
-        mCityList = mCityDB.getAllCity();
+        mCityList = mCityDB.getAllCity();//获取数据库城市信息
         int i = 0;
         for (City city : mCityList) {
             i++;
             String cityName = city.getCity();
             String cityCode = city.getNumber();
             Log.d(TAG, cityCode + ":" + cityName);
-        }
-        Log.d(TAG, "i=" + i);
+        }//遍历列表中所有城市的名称和id
+        Log.d(TAG, "i=" + i);//输出多少个城市
         return true;
     }
     public List<City> getCityList() {
